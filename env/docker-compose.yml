@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  sugar:
+    build:
+      context: ..
+      dockerfile: env/Dockerfile
+    image: sugar:cuda11.8
+    container_name: sugar
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ..:/workspace
+    working_dir: /workspace
+    shm_size: "16gb"
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+
