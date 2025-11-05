@@ -23,6 +23,18 @@ LIGM, Ecole des Ponts, Univ Gustave Eiffel, CNRS
 <b>Our method extracts meshes from 3D Gaussian Splatting reconstructions and builds hybrid representations <br>that enable easy composition and animation in Gaussian Splatting scenes by manipulating the mesh.</b>
 </div>
 
+## Quick Start (Docker)
+
+```shell
+git clone https://github.com/kyutech-kct/SuGaR-Docker.git
+cd SuGaR-Docker
+cd env
+docker compose build
+docker compose run --rm sugar bash
+
+(sugar) python train_full_pipeline.py -s <path to COLMAP dataset> -r <"dn_consistency", "density" or "sdf"> --high_poly True --export_obj True
+```
+
 ## Abstract
 
 _We propose a method to allow precise and extremely fast mesh extraction from <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3D Gaussian Splatting (SIGGRAPH 2023)</a>.
